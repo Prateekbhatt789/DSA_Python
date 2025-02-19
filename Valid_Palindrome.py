@@ -11,6 +11,7 @@ def isPalindrome(s: str) -> bool:
         j-=1
     return True
 
+# Best code
 def isPalindrome2(s:str) -> bool:
     translator = str.maketrans('','',string.punctuation+ ' _')
     print("translator:",translator)
