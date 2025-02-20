@@ -1,6 +1,6 @@
 # Leetcode 167: Two SumII -Input Array is Sorted
 
-def twoSum(self, numbers: List[int], target: int) -> List[int]:
+def twoSum(numbers: list[int], target: int) -> list[int]:
         i,j= 0,len(numbers)-1
         while i<j:
             sum = numbers[i]+numbers[j]
@@ -11,3 +11,5 @@ def twoSum(self, numbers: List[int], target: int) -> List[int]:
             else:
                 i+=1
         return []
+
+print(twoSum([2,3,7,11,15],9))
