@@ -1,4 +1,4 @@
-# 392 Leetcode: Is Subsequence
+# Leetcode 392: Is Subsequence
 def isSubsequence(s: str, t: str) -> bool:
     i=0
     j=0
