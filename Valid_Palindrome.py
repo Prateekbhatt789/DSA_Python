@@ -26,3 +26,4 @@ def isPalindrome2(s:str) -> bool:
 
 print(isPalindrome("rac a car"))
 print(isPalindrome2("rac a car"))
+print(isPalindrome2("HERO is OREH"))
