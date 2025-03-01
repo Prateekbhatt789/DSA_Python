@@ -19,3 +19,4 @@ def minSubArrayLen(target: int, nums: List[int]) -> int:
         return wlen if wlen != float('inf') else 0
 
 print(minSubArrayLen(7, [2,3,1,2,4,3]))
+print(minSubArrayLen(8, [3,2,1,2,1,3]))
