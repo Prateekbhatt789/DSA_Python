@@ -1,3 +1,4 @@
+# Leetcode 3 Longest substring with concatenation of all words
 import typing
 def lengthOfLongestSubstring(s: str) -> int:
     n = len(s)
