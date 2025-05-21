@@ -107,30 +107,30 @@ def Find_len(head: ListNode) -> int:
         len += 1
     return len
 
+if __name__ == '__main__':
+    list = None
+    # list = Insert_At_Head(list,4)
+    list = Insert_At_Head(list,3)
+    list = Insert_At_Head(list,2)
+    list = Insert_At_Head(list,1)
+    printLL(list,'Sample List')
 
-list = None
-# list = Insert_At_Head(list,4)
-list = Insert_At_Head(list,3)
-list = Insert_At_Head(list,2)
-list = Insert_At_Head(list,1)
-printLL(list,'Sample List')
+    list = Insert_At_Tail(list,4)
+    printLL(list, "Tail_Insertion")
 
-list = Insert_At_Tail(list,4)
-printLL(list, "Tail_Insertion")
+    # list = Delete_At_Head(list)
+    # printLL(list,'Delete at head')
 
-# list = Delete_At_Head(list)
-# printLL(list,'Delete at head')
+    # list = Delete_At_Tail(list)
+    # printLL(list)
 
-# list = Delete_At_Tail(list)
-# printLL(list)
+    # list = Insert_At_Index(list,45,2)
+    # printLL(list,'at index')
 
-# list = Insert_At_Index(list,45,2)
-# printLL(list,'at index')
+    # list = Delete_At_Index(list,7)
+    # printLL(list,'del at index')
 
-# list = Delete_At_Index(list,7)
-# printLL(list,'del at index')
+    # value = int(input("Enter the value of Search node:"))
+    # print(f"Node of value {value} found in List" if Search_node(list,value) else "Node of {value} not found in List")
 
-# value = int(input("Enter the value of Search node:"))
-# print(f"Node of value {value} found in List" if Search_node(list,value) else "Node of {value} not found in List")
-
-print(f"Length of list: {Find_len(list)}")
+    print(f"Length of list: {Find_len(list)}")
