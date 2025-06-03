@@ -23,6 +23,18 @@ def kReverse_Recursive(head: ListNode, k: int):
     head.next = RevHeadFromFriend
     return prev
 
+def KthNodeFromLast(head:ListNode, k: int) -> ListNode:
+    '''Returns the Kth node from last'''
+    first = head
+    while k:
+        first = first.next
+        k -= 1
+
+    second = head
+    while first:
+        first = first.next
+        second = second.next
+    return second
 
 list = None
 list = Insert_At_Head(list,6)
@@ -33,5 +45,8 @@ list = Insert_At_Head(list,2)
 list = Insert_At_Head(list,1)
 printLL(list,"List:")
 
-list = kReverse_Recursive(list,3)
-printLL(list,"List:")
+# list = kReverse_Recursive(list,3)
+# printLL(list,"List:")
+
+Kth_Node = KthNodeFromLast(list,4)
+print(Kth_Node.val)
