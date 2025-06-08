@@ -36,6 +36,79 @@ def KthNodeFromLast(head:ListNode, k: int) -> ListNode:
         second = second.next
     return second
 
+def PalindromeCheck(head: ListNode):
+    if not head:
+        return False
+    # 1. find the middle point
+    slow,fast = head,head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+    head2 = slow.next
+    slow.next = None
+    
+    # 2. reverse the second half
+    prev,curr = None, head2
+    while curr:
+        temp = curr.next
+        curr.next = prev
+        prev = curr
+        curr = temp
+    head2 = prev
+
+    # 3. Compare the head and head2
+    while head2:
+        if head.val != head2.val:
+            return False
+        head = head.next
+        head2 = head2.next
+    return True
+
+# Merge Sort 
+def get_middle_modified( head: ListNode):
+    prev = None
+    slow,fast = head,head
+    while fast and fast.next:
+        prev = slow
+        slow = slow.next
+        fast = fast.next.next
+    if prev:
+        prev.next = None
+    return slow
+
+def Merge_SortedList_LL(head1: ListNode, head2: ListNode):
+    dummy = ListNode(0)
+    curr = dummy
+    while head1 and head2:
+        if head1.val <= head2.val:
+            curr.next = head1
+            head1 = head1.next
+        else:
+            curr.next = head2
+            head2 = head2.next
+        curr = curr.next
+    curr.next = head1 if not head2 else head2
+    return dummy.next
+
+def MergeSortLL(head: ListNode):
+    if not head or not head.next:
+        return head
+    # 1. Find middle node
+    middle = get_middle_modified(head)
+    left = head
+    right = middle
+
+    # 2. Recursively sort list
+    sortedList1 = MergeSortLL(left)
+    sortedList2 = MergeSortLL(right)
+
+    # 3. Merge sorted List
+    head = Merge_SortedList_LL(sortedList1,sortedList2)
+    return head
+
+def kRotate(head: ListNode):
+    pass
+
 list = None
 list = Insert_At_Head(list,6)
 list = Insert_At_Head(list,5)
@@ -50,3 +123,25 @@ printLL(list,"List:")
 
 Kth_Node = KthNodeFromLast(list,4)
 print(Kth_Node.val)
+
+list2 = None
+list2 = Insert_At_Head(list2,1)
+list2 = Insert_At_Head(list2,2)
+list2 = Insert_At_Head(list2,3)
+list2 = Insert_At_Head(list2,3)
+list2 = Insert_At_Head(list2,2)
+list2 = Insert_At_Head(list2,1)
+printLL(list2,"List2")
+printLL(list,"list")
+print(f'Is List2 Palindrome: {PalindromeCheck(list2)}')
+print(f'Is List Palindrome: {PalindromeCheck(list)}')
+
+list3 = None
+list3 = Insert_At_Head(list3,3)
+list3 = Insert_At_Head(list3,5)
+list3 = Insert_At_Head(list3,1)
+list3 = Insert_At_Head(list3,2)
+list3 = Insert_At_Head(list3,4)
+printLL(list3,"List to sort")
+list3 = MergeSortLL(list3)
+printLL(list3,"Merged List")
