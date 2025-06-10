@@ -1,4 +1,4 @@
-from LinkedList_Basics import ListNode,printLL,Insert_At_Head
+from LinkedList_Basics import ListNode,printLL,Insert_At_Head,Find_len
 from typing import Optional
 
 
@@ -106,8 +106,24 @@ def MergeSortLL(head: ListNode):
     head = Merge_SortedList_LL(sortedList1,sortedList2)
     return head
 
-def kRotate(head: ListNode):
-    pass
+def kRotate (head: ListNode,k: int):
+    l = Find_len(head)
+    if k % l == 0 or not head:
+        return head
+    k = k % l
+    fast = head
+    while k:
+        fast = fast.next
+        k -= 1
+    slow = head
+    while fast.next:
+        slow = slow.next
+        fast = fast.next
+    newHead = slow.next
+    slow.next = None
+    fast.next = head
+    return newHead
+
 
 list = None
 list = Insert_At_Head(list,6)
@@ -145,3 +161,7 @@ list3 = Insert_At_Head(list3,4)
 printLL(list3,"List to sort")
 list3 = MergeSortLL(list3)
 printLL(list3,"Merged List")
+
+
+list3 = kRotate(list3,k=13)
+printLL(list3,"Rotate List")
