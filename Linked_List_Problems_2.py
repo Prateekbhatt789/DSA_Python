@@ -124,6 +124,28 @@ def kRotate (head: ListNode,k: int):
     fast.next = head
     return newHead
 
+def Add_Two_List (head1: ListNode, head2: ListNode):
+    dummy = ListNode(0)
+    sumList = dummy
+    carry = 0
+    while head1 or head2:
+        sum = 0 
+        if head1:
+            sum += head1.val
+            head1 = head1.next
+        if head2:
+            sum += head2.val
+            head2 = head2.next
+        
+        sum += carry
+        digit = sum % 10
+        carry = sum // 10
+        tempNode = ListNode(digit)
+        sumList.next = tempNode
+        sumList = sumList.next
+
+    return dummy.next
+
 
 list = None
 list = Insert_At_Head(list,6)
@@ -162,6 +184,19 @@ printLL(list3,"List to sort")
 list3 = MergeSortLL(list3)
 printLL(list3,"Merged List")
 
-
 list3 = kRotate(list3,k=13)
 printLL(list3,"Rotate List")
+
+list4 = None   # 342
+list4 = Insert_At_Head(list4, 3)
+list4 = Insert_At_Head(list4, 4)
+list4 = Insert_At_Head(list4, 2)
+
+list5 = None   # 465
+list5 = Insert_At_Head(list5, 4)
+list5 = Insert_At_Head(list5, 6)
+list5 = Insert_At_Head(list5, 5)
+printLL(list4,"Add list1")
+printLL(list5,"Add list2")
+sumList = Add_Two_List(list4, list5)
+printLL(sumList,"Sum of 2 list")
