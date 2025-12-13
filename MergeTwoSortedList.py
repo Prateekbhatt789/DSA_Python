@@ -18,24 +18,51 @@ def printLL(head: Optional[ListNode]):
 
 # Optimised , No call stack overhead
 def mergeTwoLists(list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-    dummyHead = ListNode(0)
-    temp = dummyHead
+    '''
+    Merge two sorted linked lists 
+
+    Time Complexisty: O(m+n)  ~O(n)
+    Space Complexity: O(1)
+    
+    :param l1: The head of first Linked List
+    :type l1: ListNode
+    :param l2: The head of second Linked List
+    :type l2: ListNode
+    :return: The head of sorted Linked List
+    :rtype: ListNode
+
+    Time Complexity: O(n+m)
+    Space Complexity: O(1)
+    '''
+    dummy = ListNode(0)
+    current = dummy
     while list1 and list2:
         if list1.val <= list2.val:
-            temp.next = list1
+            current.next = list1
             list1 = list1.next
         else:
-            temp.next = list2
+            current.next = list2
             list2 = list2.next
-        temp = temp.next
+        current = current.next
     
-    temp.next = list1 if list1 else list2
-    return dummyHead.next
+    current.next = list1 if list1 else list2
+    return dummy.next
 
 
 
 def MergeLL(list1: ListNode,list2: ListNode) -> ListNode:
-    ''' Recursive function to merge two sorted listed '''
+    '''
+    Docstring for merge_list_rec
+    
+    :param l1: The head of LL 1
+    :type l1: ListNode
+    :param l2: The head of LL 2
+    :type l2: ListNode
+    :return: Head of merged list
+    :rtype: ListNode
+
+    Time Complexity- O(m+n)
+    Space Complexity- O(m+n) '''
     # Base Case
     if not list1:
         return list2

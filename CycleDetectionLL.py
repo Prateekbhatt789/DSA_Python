@@ -32,13 +32,22 @@ def makecycle(head:Optional[ListNode],pos):
     # print(dst.val)
 
 def hasCycle( head: Optional[ListNode]) -> bool:
-        slow ,fast = head,head
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-            if slow == fast:
-                return True
-        return False
+    '''
+    Detects cycle in linked list 
+    Also know as Tortoise and Hare algorithm or Floyed cycle detection
+
+    :param head: head node of LL
+
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+    '''
+    slow ,fast = head,head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        if slow == fast:
+            return True
+    return False
 
 
 
