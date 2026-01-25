@@ -1,6 +1,18 @@
 # DSA_Python
-1. **Array**
-2. **Linked List**
-- LinkedList_Basics.py
-- Linked_List_Problems_2.py
-- MergeTwoSortedList.py
+## Linked List Problems
+- AddTwoNumberLL
+- CycleDetectionLL
+- MergeTwoSortedList
+- linked_list_module
+- middle_of_ll
+- reverse_ll
+- remove_nth_ll
+- delete_node_LL
+- intersection_of_list.py
+- k-reverse linked list
+
+- palindrome
+- merge sort the ll
+- k-rotate ll
+- remove duplicates from sorted ll
+- buuble sort ll
