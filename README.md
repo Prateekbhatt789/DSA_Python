@@ -15,4 +15,4 @@
 - merge sort the ll
 - k-rotate ll
 - remove duplicates from sorted ll
-- buuble sort ll
+- bubble sort ll
