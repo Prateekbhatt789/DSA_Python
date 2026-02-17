@@ -58,6 +58,24 @@ def get_list(n=5):
         n -= 1
     return list1
 
+def create_list_from_pyList(lst: list) -> ListNode:
+    '''
+    Function to create linked list using python list
+    
+    :param lst: list holding values which will be assigned to node
+    :type lst: list[int]
+    :return: head of newly created linked list
+    :rtype: ListNode
+    '''
+    if not lst:
+        return None
+    head = ListNode(lst[0])
+    current = head
+    for value in lst[1:]:
+        current.next = ListNode(value)
+        current = current.next
+    return head
+
 if __name__ == '__main__':
     head = None
     head = insert_at_head(30,head)
@@ -68,3 +86,6 @@ if __name__ == '__main__':
     printLL(head)
     temp = get_list(6)
     printLL(temp,'from get list')
+
+    head = create_list_from_pyList([1,2,3,4,5])
+    printLL(head,"New list from  python list")
